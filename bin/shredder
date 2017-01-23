@@ -1,0 +1,5 @@
+#!/bin/sh
+set -ex
+
+find "$@" -type f -exec shred --remove {} +
+rm -rf "$@"
