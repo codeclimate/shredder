@@ -1,5 +1,11 @@
 #!/bin/sh
-set -ex
+set -e
 
+if [ "$#" -lt 1 ]; then
+  echo "Usage: shredder <paths>..."
+  exit 64
+fi
+
+set -x
 find "$@" -type f -exec shred --remove {} +
 rm -rf "$@"
