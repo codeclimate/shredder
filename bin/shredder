@@ -7,5 +7,5 @@ if [ "$#" -lt 1 ]; then
 fi
 
 set -x
-find "$@" -type f -exec shred --remove {} +
+find "$@" -type f -exec shred --iterations=1 --remove=unlink {} +
 rm -rf "$@"
